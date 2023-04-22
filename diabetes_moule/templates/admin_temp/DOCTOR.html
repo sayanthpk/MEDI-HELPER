@@ -1,0 +1,52 @@
+{% extends 'admin_temp/index.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+    <style type="text/css">
+    th{
+        background-color: #26619c;
+    }
+    h2{
+        color:#26619c ;
+        font-family: Segoe Script;
+    }
+</style>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+   <table class="table table-active">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col"><p>DR. NAME</p></th>
+      <th scope="col">ADDRESS</th>
+      <th scope="col">EMAIL</th>
+      <th scope="col">PHONE NO.</th>
+      <th scope="col">QUALIFICATION</th>
+      <th scope="col">CATEGORY</th>
+      <th scope="col"></th>
+    </tr>
+       {% for foo in data %}
+
+
+
+    <tr>
+      <td>&nbsp;{{ forloop.counter }}</td>
+      <td>{{ foo.doctorname }}</td>
+      <td>{{ foo.doctorplace}},{{ foo.doctorpost }},{{ foo.doctorpin }}</td>
+      <td>{{ foo.email }}&nbsp;</td>
+      <td>{{ foo.pho_no }}&nbsp;</td>
+      <td>{{ foo.qualification }}&nbsp;</td>
+      <td>&nbsp;{{ foo.category }}</td>
+      <td><a href="/approved_doctors/{{ foo.doctorid_id }}">APPROVE</a><br/>
+      <a href="/reject_doctors/{{ foo.doctorid_id }}">REJECT</a></td>
+    </tr>
+       {% endfor %}
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

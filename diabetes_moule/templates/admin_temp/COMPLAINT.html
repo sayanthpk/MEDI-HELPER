@@ -1,0 +1,49 @@
+{% extends 'admin_temp/index.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+    <style type="text/css">
+    th{
+        background-color: #26619c;
+    }
+    h2{
+        color:#26619c ;
+        font-family: Segoe Script;
+    }
+</style>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-active">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">USER NAME</th>
+      <th scope="col">COMPLAINT</th>
+      <th scope="col">COMPLAINT DATE</th>
+      <th scope="col">&nbsp;</th>
+     
+    </tr>
+      {% for foo in data %}
+    <tr>
+      <td> {{ forloop.counter }}</td>
+      <td> {{ foo.userid.username }}</td>
+      <td> {{ foo.complaints }}</td>
+      <td>{{ foo.complaint_date }}</td>
+        {% if foo.doctorid.usertype == 'pending' %}
+      <td><a href="/complaint_reply/{{ foo.id }}">SEND REPLY</a></td>
+    {% else %}
+    <td><b>REPLY :</b>{{ foo.reply }}<br>
+        <b>DATE:</b>{{ foo.reply_date }}</td>
+    {% endif %}
+     
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

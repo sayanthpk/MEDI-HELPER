@@ -1,0 +1,39 @@
+{% extends 'doctor_temp/doctor_index.html' %}
+{% block body %}
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body><form action="" method="get"><table width="793" height="80" border="1">
+  <tr>
+    <th width="46" height="46" scope="col">#</th>
+    <th width="39" scope="col">SCHEDULE_TIME</th>
+    <th width="26" scope="col">SCHEDULE_DATE</th>
+    <th width="26" scope="col">TOCKEN COUNT</th>
+    <th width="224" scope="col">&nbsp;</th>
+  </tr>
+           {% for foo in data %}
+
+  <tr>
+       <td>&nbsp;{{ forloop.counter }}</td>
+    <td>{{ foo.schedulingtime }}</td>
+    <td>&nbsp;{{ foo.schedulingdate }}</td>
+          <td >{{ foo.tocken_count }}</td>
+
+
+    <td><a href="delete/{{ foo.id }}" onclick="return confirm('Are you sure to delete?')" class="btn btn-primary">DELETE</a></td>
+  </tr>
+
+  {% endfor %}
+
+</table>
+</form>
+</body>
+</html>
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'admin_temp/index.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+    <style type="text/css">
+    th{
+        background-color: #26619c;
+    }
+    h2{
+        color:#26619c ;
+        font-family: Segoe Script;
+    }
+</style>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-active">
+    <tr>
+      <th scope="col"><h3>#</h3></th>
+      <th scope="col">USER NAME</th>
+      <th scope="col">USER PLACE</th>
+      <th scope="col">USER NO.</th>
+      <th scope="col">EMAIL</th>
+      <th scope="col">HEIGHT</th>
+      <th scope="col">WEIGHT</th>
+      <th scope="col">AGE</th>
+    </tr>
+      {% for foo in data %}
+    <tr>
+
+      <td> {{ forloop.counter }}</td>
+      <td>&nbsp;{{ foo.username}}</td>
+      <td>{{ foo.place}}&nbsp;</td>
+      <td>{{ foo.phone }}&nbsp;</td>
+      <td> {{ foo.email }}&nbsp;</td>
+      <td>{{ foo.height}}&nbsp;</td>
+      <td>{{ foo.weight}}&nbsp;</td>
+      <td>{{ foo.age}}&nbsp;</td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

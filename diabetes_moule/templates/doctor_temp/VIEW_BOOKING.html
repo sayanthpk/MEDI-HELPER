@@ -1,0 +1,35 @@
+{% extends 'doctor_temp/doctor_index.html' %}
+{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body><form action="" method="get"><table width="200" border="1">
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">CUSTOMER_NAME</th>
+    <th scope="col">SCHEDULE</th>
+    <th scope="col">DATE</th>
+    <th scope="col">TOCKEN NO</th>
+  </tr>
+
+     {% for foo in data %}
+  <tr>
+    <td>{{ forloop.counter }}</td>
+    <td>&nbsp;{{ foo.userid.username }}</td>
+    <td>&nbsp;<b>Schedule Date:</b>{{ foo.schedule_id.schedulingdate }}<br>
+    <b>Schedule Time:</b>{{ foo.schedule_id.schedulingtime }}</td>
+    <td>{{ foo.tocken_no }}</td>
+  </tr>
+
+    {% endfor %}
+</table>
+</form>
+</body>
+</html>
+
+{% endblock %}

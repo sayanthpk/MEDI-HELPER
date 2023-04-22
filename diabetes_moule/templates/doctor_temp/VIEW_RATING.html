@@ -1,0 +1,34 @@
+{% extends 'doctor_temp/doctor_index.html' %}
+{% block body %}
+
+<form id="form1" name="form1" method="get" action="">
+  <table >
+    <tr>
+      <th>#</th>
+      <th>Rating</th>
+      <th align="center">User Name</th>
+{#      <th>Date</th>#}
+    </tr>
+      {% for i in resu %}
+    <tr>
+      <td>&nbsp;{{ forloop.counter }}</td>
+      <td >
+{#                <img src="{{ r1[i][0] }}" width="20" height="20">#}
+{#                <img src="{{ r1[i][1] }}" width="20" height="20">#}
+{#                <img src="{{ r1[i][2] }}" width="20" height="20">#}
+{#                <img src="{{ r1[i][3] }}" width="20" height="20">#}
+{#                <img src="{{ r1[i][4] }}" width="20" height="20">#}
+
+          {% for j in i.rating %}
+               <img src="{{ j }}" width="20" height="20">
+              {% endfor %}
+            </td>
+
+      <td>{{ i.uname }}</td>
+{#      <td>{{ i.rdate }}</td>#}
+    </tr>
+       {% endfor %}
+  </table>
+</form>
+
+{% endblock %}
